@@ -1,44 +1,44 @@
 package interactor
 
-import dataSource.FakeCsvDataSource
-import dataSource.utils.CsvParser
+import dataSource.FakeClothesDataSource
 import org.junit.jupiter.api.Test
 
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.BeforeAll
-import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.TestInstance
-import kotlin.test.Ignore
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 internal class GetCitiesNameHasHighestClothesPriceInteractorTest {
 
-    lateinit var csvParser : CsvParser
     lateinit var dataSource: CostOfLivingDataSource
-    lateinit var citiesName: GetCitiesNameHasHighestClothesPriceInteractor
+    lateinit var citiesName: GetCitiesNameHasHighestSuitableClothesPriceInteractor
 
     @BeforeAll
     fun setup(){
-        csvParser= CsvParser()
-        dataSource  = FakeCsvDataSource(csvParser)
-        citiesName = GetCitiesNameHasHighestClothesPriceInteractor(dataSource)
+        dataSource  = FakeClothesDataSource()
+        citiesName = GetCitiesNameHasHighestSuitableClothesPriceInteractor(dataSource)
     }
 
     @Test
-    fun should_ReturnListOfSizeTwo_when_execute(){
-        // when
-        val result = citiesName.execute()
-        // then
-        assertEquals(2, result.size)
-    }
-
-    @Test
-    fun should_ReturnTrue_when_executeWithAcceptiableData(){
+    fun should_returnListOfSizeSeven_whenExecuteWithLimit10(){
         // given
-        val expected = listOf("Havana", "Damascus")
+        val limit = 50
+        val expected = 7
         // when
-        val result = citiesName.execute()
+        val result = citiesName.execute(limit).size
         // then
         assertEquals(expected, result)
     }
+
+    @Test
+    fun should_returnCorrectList_whenExecuteWithLimit10(){
+        // given
+        val limit = 50
+        val expected = listOf("Havana", "Moratuwa", "Las Tunas", "Homs", "Uyo", "Warri", "Damascus")
+        // when
+        val result = citiesName.execute(limit)
+        // then
+        assertEquals(expected, result)
+    }
+
 }
