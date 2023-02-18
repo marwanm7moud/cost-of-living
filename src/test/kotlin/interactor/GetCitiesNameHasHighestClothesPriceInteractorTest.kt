@@ -20,7 +20,7 @@ internal class GetCitiesNameHasHighestClothesPriceInteractorTest {
     }
 
     @Test
-    fun should_returnListOfSizeSeven_whenExecuteWithLimitFifty(){
+    fun should_returnListOfSizeSeven_whenExecuteWithFifty(){
         // given
         val limit = 50
         val expected = 7
@@ -31,7 +31,7 @@ internal class GetCitiesNameHasHighestClothesPriceInteractorTest {
     }
 
     @Test
-    fun should_returnCorrectList_whenExecuteWithLimitFifty(){
+    fun should_returnCorrectList_whenExecuteWithFifty(){
         // given
         val limit = 50
         val expected = listOf("Havana", "Moratuwa", "Las Tunas", "Homs", "Uyo", "Warri", "Damascus")
@@ -41,7 +41,7 @@ internal class GetCitiesNameHasHighestClothesPriceInteractorTest {
         assertEquals(expected, result)
     }
     @Test
-    fun should_returnListOfSizeFive_whenExecuteWithLimitFive(){
+    fun should_returnListOfSizeFive_whenExecuteWithFive(){
         // given
         val limit = 5
         val expected = 5
@@ -52,7 +52,7 @@ internal class GetCitiesNameHasHighestClothesPriceInteractorTest {
     }
 
     @Test
-    fun should_returnCorrectList_whenExecuteWithLimit10(){
+    fun should_returnCorrectList_whenExecuteWithFive(){
         // given
         val limit = 5
         val expected = listOf("Havana", "Moratuwa", "Las Tunas", "Homs", "Uyo")
@@ -60,6 +60,26 @@ internal class GetCitiesNameHasHighestClothesPriceInteractorTest {
         val result = citiesName.execute(limit)
         // then
         assertEquals(expected, result)
+    }
+
+    @Test
+    fun should_returnEmptyList_whenExecuteWithZero(){
+        // given
+        val limit = 0
+        // when
+        val result = citiesName.execute(limit).isEmpty()
+        // then
+        assertTrue(result)
+    }
+
+    @Test
+    fun should_returnEmptyList_whenExecuteWithMinus(){
+        // given
+        val limit = -5
+        // when
+        val result = citiesName.execute(limit).isEmpty()
+        // then
+        assertTrue(result)
     }
 
 }
