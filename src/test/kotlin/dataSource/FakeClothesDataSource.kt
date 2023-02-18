@@ -330,10 +330,10 @@ class FakeClothesDataSource : CostOfLivingDataSource {
                     internationalPrimarySchoolYearlyForOneChild = 15166.67f
                 ),
                 clothesPrices = ClothesPrices(
-                    onePairOfJeansLevis50oneOrSimilar = 55.5f,
-                    oneSummerDressInAChainStoreZaraHAndM = 44.33f,
-                    onePairOfNikeRunningShoesMidRange = 79.17f,
-                    onePairOfMenLeatherBusinessShoes = 78.0f
+                    onePairOfJeansLevis50oneOrSimilar = 1f,
+                    oneSummerDressInAChainStoreZaraHAndM = 1f,
+                    onePairOfNikeRunningShoesMidRange = 1f,
+                    onePairOfMenLeatherBusinessShoes = 1f
                 ),
                 transportationsPrices = TransportationsPrices(
                     oneWayTicketLocalTransport = 0.1f,
@@ -400,10 +400,10 @@ class FakeClothesDataSource : CostOfLivingDataSource {
                     internationalPrimarySchoolYearlyForOneChild = 677.97f
                 ),
                 clothesPrices = ClothesPrices(
-                    onePairOfJeansLevis50oneOrSimilar = 21.7f,
-                    oneSummerDressInAChainStoreZaraHAndM = 9.49f,
-                    onePairOfNikeRunningShoesMidRange = 27.12f,
-                    onePairOfMenLeatherBusinessShoes = 40.68f
+                    onePairOfJeansLevis50oneOrSimilar = 2f,
+                    oneSummerDressInAChainStoreZaraHAndM = 2f,
+                    onePairOfNikeRunningShoesMidRange = 2f,
+                    onePairOfMenLeatherBusinessShoes = 2f
                 ),
                 transportationsPrices = TransportationsPrices(
                     oneWayTicketLocalTransport = null,
@@ -426,7 +426,7 @@ class FakeClothesDataSource : CostOfLivingDataSource {
                     pricePerSquareMeterToBuyApartmentOutsideOfCentre = null
                 ),
                 averageMonthlyNetSalaryAfterTax = 36.61f,
-                dataQuality = false
+                dataQuality = true
             ), CityEntity(
                 cityName = "Las Tunas",
                 country = "Cuba",
@@ -470,10 +470,10 @@ class FakeClothesDataSource : CostOfLivingDataSource {
                     internationalPrimarySchoolYearlyForOneChild = null
                 ),
                 clothesPrices = ClothesPrices(
-                    onePairOfJeansLevis50oneOrSimilar = 40.0f,
-                    oneSummerDressInAChainStoreZaraHAndM = 40.0f,
-                    onePairOfNikeRunningShoesMidRange = 60.0f,
-                    onePairOfMenLeatherBusinessShoes = 50.0f
+                    onePairOfJeansLevis50oneOrSimilar = 3f,
+                    oneSummerDressInAChainStoreZaraHAndM = 3f,
+                    onePairOfNikeRunningShoesMidRange = 3f,
+                    onePairOfMenLeatherBusinessShoes = 3f
                 ),
                 transportationsPrices = TransportationsPrices(
                     oneWayTicketLocalTransport = null,
@@ -496,7 +496,7 @@ class FakeClothesDataSource : CostOfLivingDataSource {
                     pricePerSquareMeterToBuyApartmentOutsideOfCentre = null
                 ),
                 averageMonthlyNetSalaryAfterTax = 40.0f,
-                dataQuality = false
+                dataQuality = true
             ), CityEntity(
                 cityName = "Latakia",
                 country = "Syria",
@@ -610,10 +610,10 @@ class FakeClothesDataSource : CostOfLivingDataSource {
                     internationalPrimarySchoolYearlyForOneChild = 1950.0f
                 ),
                 clothesPrices = ClothesPrices(
-                    onePairOfJeansLevis50oneOrSimilar = 25.0f,
-                    oneSummerDressInAChainStoreZaraHAndM = 15.0f,
-                    onePairOfNikeRunningShoesMidRange = 150.0f,
-                    onePairOfMenLeatherBusinessShoes = 150.0f
+                    onePairOfJeansLevis50oneOrSimilar = 4f,
+                    oneSummerDressInAChainStoreZaraHAndM = 4f,
+                    onePairOfNikeRunningShoesMidRange = 4f,
+                    onePairOfMenLeatherBusinessShoes = 4f
                 ),
                 transportationsPrices = TransportationsPrices(
                     oneWayTicketLocalTransport = 0.05f,
@@ -636,7 +636,7 @@ class FakeClothesDataSource : CostOfLivingDataSource {
                     pricePerSquareMeterToBuyApartmentOutsideOfCentre = 350.0f
                 ),
                 averageMonthlyNetSalaryAfterTax = 46.33f,
-                dataQuality = false
+                dataQuality = true
             ), CityEntity(
                 cityName = "Hamah",
                 country = "Syria",
@@ -820,10 +820,10 @@ class FakeClothesDataSource : CostOfLivingDataSource {
                     internationalPrimarySchoolYearlyForOneChild = null
                 ),
                 clothesPrices = ClothesPrices(
-                    onePairOfJeansLevis50oneOrSimilar = null,
-                    oneSummerDressInAChainStoreZaraHAndM = null,
-                    onePairOfNikeRunningShoesMidRange = null,
-                    onePairOfMenLeatherBusinessShoes = null
+                    onePairOfJeansLevis50oneOrSimilar = 5f,
+                    oneSummerDressInAChainStoreZaraHAndM = 5f,
+                    onePairOfNikeRunningShoesMidRange = 5f,
+                    onePairOfMenLeatherBusinessShoes = 5f
                 ),
                 transportationsPrices = TransportationsPrices(
                     oneWayTicketLocalTransport = null,
@@ -846,7 +846,7 @@ class FakeClothesDataSource : CostOfLivingDataSource {
                     pricePerSquareMeterToBuyApartmentOutsideOfCentre = null
                 ),
                 averageMonthlyNetSalaryAfterTax = 50.66f,
-                dataQuality = false
+                dataQuality = true
             ), CityEntity(
                 cityName = "Tamale",
                 country = "Ghana",
@@ -916,7 +916,7 @@ class FakeClothesDataSource : CostOfLivingDataSource {
                     pricePerSquareMeterToBuyApartmentOutsideOfCentre = 461.31f
                 ),
                 averageMonthlyNetSalaryAfterTax = 56.43f,
-                dataQuality = false
+                dataQuality = true
             ), CityEntity(
                 cityName = "Kasese",
                 country = "Uganda",
@@ -961,7 +961,7 @@ class FakeClothesDataSource : CostOfLivingDataSource {
                 ),
                 clothesPrices = ClothesPrices(
                     onePairOfJeansLevis50oneOrSimilar = 16.07f,
-                    oneSummerDressInAChainStoreZaraHAndM = 16.07f,
+                    oneSummerDressInAChainStoreZaraHAndM = null,
                     onePairOfNikeRunningShoesMidRange = 40.19f,
                     onePairOfMenLeatherBusinessShoes = 40.19f
                 ),
@@ -1030,7 +1030,7 @@ class FakeClothesDataSource : CostOfLivingDataSource {
                     internationalPrimarySchoolYearlyForOneChild = 4497.7f
                 ),
                 clothesPrices = ClothesPrices(
-                    onePairOfJeansLevis50oneOrSimilar = 17.98f,
+                    onePairOfJeansLevis50oneOrSimilar = null,
                     oneSummerDressInAChainStoreZaraHAndM = 5.0f,
                     onePairOfNikeRunningShoesMidRange = 150.0f,
                     onePairOfMenLeatherBusinessShoes = 42.96f
@@ -1126,7 +1126,7 @@ class FakeClothesDataSource : CostOfLivingDataSource {
                     pricePerSquareMeterToBuyApartmentOutsideOfCentre = 2419.35f
                 ),
                 averageMonthlyNetSalaryAfterTax = 75.27f,
-                dataQuality = true
+                dataQuality = false
             ), CityEntity(
                 cityName = "Warri",
                 country = "Nigeria",
@@ -1170,10 +1170,10 @@ class FakeClothesDataSource : CostOfLivingDataSource {
                     internationalPrimarySchoolYearlyForOneChild = 675.42f
                 ),
                 clothesPrices = ClothesPrices(
-                    onePairOfJeansLevis50oneOrSimilar = 13.51f,
-                    oneSummerDressInAChainStoreZaraHAndM = 45.03f,
-                    onePairOfNikeRunningShoesMidRange = 33.77f,
-                    onePairOfMenLeatherBusinessShoes = 101.31f
+                    onePairOfJeansLevis50oneOrSimilar = 6f,
+                    oneSummerDressInAChainStoreZaraHAndM = 6f,
+                    onePairOfNikeRunningShoesMidRange = 6f,
+                    onePairOfMenLeatherBusinessShoes = 6f
                 ),
                 transportationsPrices = TransportationsPrices(
                     oneWayTicketLocalTransport = 0.23f,
@@ -1243,7 +1243,7 @@ class FakeClothesDataSource : CostOfLivingDataSource {
                     onePairOfJeansLevis50oneOrSimilar = 11.53f,
                     oneSummerDressInAChainStoreZaraHAndM = 11.53f,
                     onePairOfNikeRunningShoesMidRange = 13.84f,
-                    onePairOfMenLeatherBusinessShoes = 15.38f
+                    onePairOfMenLeatherBusinessShoes = null
                 ),
                 transportationsPrices = TransportationsPrices(
                     oneWayTicketLocalTransport = null,
@@ -1336,7 +1336,7 @@ class FakeClothesDataSource : CostOfLivingDataSource {
                     pricePerSquareMeterToBuyApartmentOutsideOfCentre = null
                 ),
                 averageMonthlyNetSalaryAfterTax = 78.04f,
-                dataQuality = true
+                dataQuality = false
             ), CityEntity(
                 cityName = "Sri Jayewardenepura Kotte",
                 country = "Sri Lanka",
@@ -1380,9 +1380,9 @@ class FakeClothesDataSource : CostOfLivingDataSource {
                     internationalPrimarySchoolYearlyForOneChild = 903.96f
                 ),
                 clothesPrices = ClothesPrices(
-                    onePairOfJeansLevis50oneOrSimilar = 26.1f,
+                    onePairOfJeansLevis50oneOrSimilar = null,
                     oneSummerDressInAChainStoreZaraHAndM = 8.59f,
-                    onePairOfNikeRunningShoesMidRange = 48.81f,
+                    onePairOfNikeRunningShoesMidRange = null,
                     onePairOfMenLeatherBusinessShoes = 62.37f
                 ),
                 transportationsPrices = TransportationsPrices(

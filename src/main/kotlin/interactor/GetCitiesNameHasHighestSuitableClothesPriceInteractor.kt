@@ -2,15 +2,14 @@ package interactor
 
 import model.CityEntity
 
-class GetCitiesNameHasHighestClothesPriceInteractor(
+class GetCitiesNameHasHighestSuitableClothesPriceInteractor(
     private val dataSource: CostOfLivingDataSource,
 ) {
-    private val limit: Int = 5
 
-    fun execute(): List<String> {
+    fun execute(limit: Int): List<String> {
         return dataSource.getAllCitiesData()
             .filter(::excludeAnyNullClothPriceAndLowQualityData)
-            .sortedByDescending(::getSumOfClothesPricesOfCity)
+            .sortedBy(::getSumOfClothesPricesOfCity)
             .take(limit)
             .map { it.cityName }
     }
