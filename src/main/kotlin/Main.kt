@@ -1,6 +1,5 @@
 import dataSource.CsvDataSource
 import dataSource.utils.CsvParser
-import interactor.*
 import model.CityEntity
 
 fun main() {
@@ -19,6 +18,7 @@ fun main() {
     val getTheMostExpensiveCitiesNamesIntTermOfCinemaTickets = GetTheMostExpensiveCitiesNamesIntTermOfCinemaTickets(dataSource)
     println( getTheMostExpensiveCitiesNamesIntTermOfCinemaTickets.execute(10))
     printSeparationLine()
+
 
 }
 private fun printSeparationLine(){
