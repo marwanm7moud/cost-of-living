@@ -12,13 +12,6 @@ fun main() {
 
     val getCityHasCheapestInternetConnectionInteractor = GetCityHasCheapestInternetConnectionInteractor(dataSource)
     println(getCityHasCheapestInternetConnectionInteractor.execute())
-    printSeparationLine()
-
-
-    val getTheMostExpensiveCitiesNamesIntTermOfCinemaTickets = GetTheMostExpensiveCitiesNamesIntTermOfCinemaTickets(dataSource)
-    println( getTheMostExpensiveCitiesNamesIntTermOfCinemaTickets.execute(10))
-    printSeparationLine()
-
 
 }
 private fun printSeparationLine(){

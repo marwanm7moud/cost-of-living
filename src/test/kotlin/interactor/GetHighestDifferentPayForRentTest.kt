@@ -1,15 +1,11 @@
 package interactor
 
-import dataSource.CsvDataSource
-import dataSource.FakeCsvDataSource
 import dataSource.FakeCsvDataSourceForHighestDifferentPayForRent
 import dataSource.FakeCsvDataSourceForHighestDifferentPayForRentWithEmptyList
-import dataSource.utils.CsvParser
 import model.*
 import org.junit.jupiter.api.*
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Assertions.assertThrows
-import kotlin.math.E
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 internal class GetHighestDifferentPayForRentTest {

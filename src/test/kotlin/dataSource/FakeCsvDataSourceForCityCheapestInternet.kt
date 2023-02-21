@@ -318,14 +318,14 @@ class FakeCsvDataSourceForCityCheapestInternetWithNullInternetPrice : CostOfLivi
                 country = "Egypt",
                 mealsPrices = MealsPrices(
                     mealInexpensiveRestaurant = null,
-                    mealFor2PeopleMidRangeRestaurant =null ,
+                    mealFor2PeopleMidRangeRestaurant = null,
                     mealAtMcDonaldSOrEquivalent = null
                 ),
                 drinksPrices = DrinksPrices(
                     cappuccinoRegularInRestaurants = null,
                     cokePepsiAThirdOfLiterBottleInRestaurants = null,
-                    waterAThirdOfLiterBottleInRestaurants =null ,
-                    milkRegularOneLiter =null ,
+                    waterAThirdOfLiterBottleInRestaurants = null,
+                    milkRegularOneLiter = null,
                     waterOneAndHalfLiterBottleAtTheMarket = null,
                 ),
                 fruitAndVegetablesPrices = FruitAndVegetablesPrices(
@@ -389,14 +389,14 @@ class FakeCsvDataSourceForCityCheapestInternetWithNullInternetPrice : CostOfLivi
                 country = "Egypt",
                 mealsPrices = MealsPrices(
                     mealInexpensiveRestaurant = null,
-                    mealFor2PeopleMidRangeRestaurant =null ,
+                    mealFor2PeopleMidRangeRestaurant = null,
                     mealAtMcDonaldSOrEquivalent = null
                 ),
                 drinksPrices = DrinksPrices(
                     cappuccinoRegularInRestaurants = null,
                     cokePepsiAThirdOfLiterBottleInRestaurants = null,
-                    waterAThirdOfLiterBottleInRestaurants =null ,
-                    milkRegularOneLiter =null ,
+                    waterAThirdOfLiterBottleInRestaurants = null,
+                    milkRegularOneLiter = null,
                     waterOneAndHalfLiterBottleAtTheMarket = null,
                 ),
                 fruitAndVegetablesPrices = FruitAndVegetablesPrices(
@@ -460,14 +460,14 @@ class FakeCsvDataSourceForCityCheapestInternetWithNullInternetPrice : CostOfLivi
                 country = "Egypt",
                 mealsPrices = MealsPrices(
                     mealInexpensiveRestaurant = null,
-                    mealFor2PeopleMidRangeRestaurant =null ,
+                    mealFor2PeopleMidRangeRestaurant = null,
                     mealAtMcDonaldSOrEquivalent = null
                 ),
                 drinksPrices = DrinksPrices(
                     cappuccinoRegularInRestaurants = null,
                     cokePepsiAThirdOfLiterBottleInRestaurants = null,
-                    waterAThirdOfLiterBottleInRestaurants =null ,
-                    milkRegularOneLiter =null ,
+                    waterAThirdOfLiterBottleInRestaurants = null,
+                    milkRegularOneLiter = null,
                     waterOneAndHalfLiterBottleAtTheMarket = null,
                 ),
                 fruitAndVegetablesPrices = FruitAndVegetablesPrices(
