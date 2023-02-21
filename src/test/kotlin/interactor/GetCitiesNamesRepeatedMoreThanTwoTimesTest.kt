@@ -1,7 +1,7 @@
 package interactor
 
 import org.junit.jupiter.api.Test
-import dataSource.GetCitiesNamesRepeatedMoreThanTwoTimes
+import dataSource.FakeCsvDataSourceForGetCitiesNamesRepeatedMoreThanTwoTimes
 import dataSource.GetCitiesNamesRepeatedMoreThanTwoTimes2
 import dataSource.GetCitiesNamesRepeatedMoreThanTwoTimes3
 import org.junit.jupiter.api.Assertions.*
@@ -12,12 +12,12 @@ import org.junit.jupiter.api.TestInstance
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 internal class GetCitiesNamesRepeatedMoreThanTwoTimesTest {
 
-    private lateinit var fakeData: GetCitiesNamesRepeatedMoreThanTwoTimes
+    private lateinit var fakeData: FakeCsvDataSourceForGetCitiesNamesRepeatedMoreThanTwoTimes
     private lateinit var fakeData2: GetCitiesNamesRepeatedMoreThanTwoTimes2
     private lateinit var fakeData3: GetCitiesNamesRepeatedMoreThanTwoTimes3
     @BeforeAll
     fun setup() {
-        fakeData = GetCitiesNamesRepeatedMoreThanTwoTimes()
+        fakeData = FakeCsvDataSourceForGetCitiesNamesRepeatedMoreThanTwoTimes()
         fakeData2 = GetCitiesNamesRepeatedMoreThanTwoTimes2()
         fakeData3 = GetCitiesNamesRepeatedMoreThanTwoTimes3()
     }

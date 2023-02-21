@@ -10,14 +10,12 @@ import org.junit.jupiter.api.TestInstance
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 class GetCountriesEnforceHighTaxesOnDrinksTest {
 
-    private lateinit var csvParser : CsvParser
     private lateinit var dataSource: CostOfLivingDataSource
     private lateinit var getCountriesEnforceHighTaxesOnDrinks: GetCountriesEnforceHighTaxesOnDrinks
 
     @BeforeAll
     fun setup(){
-        csvParser= CsvParser()
-        dataSource  = FakeCsvDataSource(csvParser)
+        dataSource  = FakeCsvDataSource()
         getCountriesEnforceHighTaxesOnDrinks = GetCountriesEnforceHighTaxesOnDrinks(dataSource)
     }
 

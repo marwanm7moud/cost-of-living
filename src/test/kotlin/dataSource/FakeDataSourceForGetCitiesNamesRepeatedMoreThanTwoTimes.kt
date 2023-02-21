@@ -3,7 +3,7 @@ package dataSource
 import interactor.CostOfLivingDataSource
 import model.*
 
-class GetCitiesNamesRepeatedMoreThanTwoTimes : CostOfLivingDataSource {
+class FakeCsvDataSourceForGetCitiesNamesRepeatedMoreThanTwoTimes : CostOfLivingDataSource {
     override fun getAllCitiesData(): List<CityEntity> {
         return listOf(
             CityEntity(
