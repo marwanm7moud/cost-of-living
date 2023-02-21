@@ -1,34 +1,69 @@
 package interactor
 
+import io.mockk.every
+import io.mockk.mockk
 import model.*
 import org.junit.jupiter.api.Assertions.*
+import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 
 class GetCitiesNamesSortedByCheapestBananaPriceInteractorTest {
 
-    private val getCitiesNamesSortedByCheapestBananaPriceInteractor =
-        GetCitiesNamesSortedByCheapestBananaPriceInteractor()
+    lateinit var dataSource: CostOfLivingDataSource
+    private lateinit var getCitiesNamesSortedByCheapestBananaPriceInteractor: GetCitiesNamesSortedByCheapestBananaPriceInteractor
 
+    @BeforeEach
+    fun setUp() {
+        dataSource = mockk()
+        getCitiesNamesSortedByCheapestBananaPriceInteractor = GetCitiesNamesSortedByCheapestBananaPriceInteractor(dataSource)
+    }
 
     @Test
     fun should_ignore_entries_with_null_banana_price() {
-        val cities: List<CityEntity> = citiesWithNullBananaPrice()
+        // given
+        every { dataSource.getAllCitiesData() } returns listOf(
+            cityEntity("A", null),
+            cityEntity("B", 10.25f)
+        )
 
-        val sorted = getCitiesNamesSortedByCheapestBananaPriceInteractor.execute(*cities.toTypedArray())
+        val actual = getCitiesNamesSortedByCheapestBananaPriceInteractor.execute("A", "B")
+        val expected = listOf("B")
 
-        assertEquals(1, sorted.size)
+        assertEquals(expected, actual)
     }
 
     @Test
-    fun should_get_cities_names_sorted_by_cheapest_banana_price() {
-        val cities: List<CityEntity> = citiesEntities()
+    fun should_allow_only_correct_cities_names() {
+        // given
+        every { dataSource.getAllCitiesData() } returns listOf(
+            cityEntity("A", 5.1f),
+            cityEntity("B", 10.25f)
+        )
 
-        val sorted = getCitiesNamesSortedByCheapestBananaPriceInteractor.execute(*cities.toTypedArray())
+        val actual = getCitiesNamesSortedByCheapestBananaPriceInteractor.execute("A")
+        val expected = listOf("A")
 
-        val expected = listOf("B", "A")
-
-        assertEquals(expected, sorted)
+        assertEquals(expected, actual)
     }
+
+    @Test
+    fun given_cities_with_correct_names_and_non_null_banana_prices_should_sort_all() {
+        // given
+        every { dataSource.getAllCitiesData() } returns listOf(
+            cityEntity("A", 5.1f),
+            cityEntity("B", 10.25f),
+            cityEntity("C", 2.25f),
+        )
+
+        val actual = getCitiesNamesSortedByCheapestBananaPriceInteractor.execute("A", "B", "C")
+        val expected = listOf("C", "A", "B")
+
+        assertEquals(expected, actual)
+    }
+
+
+
+
 
     private fun citiesEntities(): List<CityEntity> {
         return listOf(
@@ -36,13 +71,6 @@ class GetCitiesNamesSortedByCheapestBananaPriceInteractorTest {
             cityEntity("B", 10.25f)
         )
     }
-    private fun citiesWithNullBananaPrice(): List<CityEntity> {
-        return listOf(
-            cityEntity("A", null),
-            cityEntity("B", 10.25f)
-        )
-    }
-
     private fun cityEntity(cityName: String, bananaPrice: Float?): CityEntity {
         return CityEntity(
             cityName,
