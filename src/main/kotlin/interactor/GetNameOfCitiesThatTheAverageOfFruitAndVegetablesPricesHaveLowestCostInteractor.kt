@@ -2,21 +2,22 @@ package interactor
 
 import model.CityEntity
 
-class GetTheNameOfTenCitiesThatTheAverageOfFruitAndVegetablesPricesHaveLowestCostInteractor (
+class GetNameOfCitiesThatTheAverageOfFruitAndVegetablesPricesHaveLowestCostInteractor (
   private val dataSource: CostOfLivingDataSource,) {
 
-  fun execute(): List<String> {
+  fun execute(limit: Int=10): List<String> {
     return dataSource
       .getAllCitiesData()
       .filter(::excludeNullSalariesAndFruitAndVegetablesPrices)
       .sortedBy(::sortTheAverageOfFruitAndVegetablesPricesHaveLowestCost)
-      .take(10)
+      .take(limit)
       .map { it.cityName }
-  }
 
+  }
 
   private fun excludeNullSalariesAndFruitAndVegetablesPrices(city: CityEntity): Boolean {
     return city.averageMonthlyNetSalaryAfterTax != null &&
+            city.dataQuality&&
             city.fruitAndVegetablesPrices.apples1kg != null &&
             city.fruitAndVegetablesPrices.banana1kg!= null&&
             city.fruitAndVegetablesPrices.lettuceOneHead!= null &&
@@ -26,15 +27,17 @@ class GetTheNameOfTenCitiesThatTheAverageOfFruitAndVegetablesPricesHaveLowestCos
             city.fruitAndVegetablesPrices.tomato1kg!= null
 
   }
-  private fun sortTheAverageOfFruitAndVegetablesPricesHaveLowestCost(city: CityEntity):Float{
+  private fun sortTheAverageOfFruitAndVegetablesPricesHaveLowestCost(city: CityEntity):Double{
+    return city.fruitAndVegetablesPrices.run {
+      listOf(apples1kg!! ,
+      banana1kg!! ,
+      lettuceOneHead!! ,
+      onion1kg!! ,
+      oranges1kg!! ,
+      potato1kg!! ,
+      tomato1kg!!).average()
+    }
 
-    return (city.fruitAndVegetablesPrices.apples1kg!! +
-            city.fruitAndVegetablesPrices.banana1kg!! +
-            city.fruitAndVegetablesPrices.lettuceOneHead!! +
-            city.fruitAndVegetablesPrices.onion1kg!! +
-            city.fruitAndVegetablesPrices.oranges1kg!! +
-            city.fruitAndVegetablesPrices.potato1kg!! +
-            city.fruitAndVegetablesPrices.tomato1kg!!) / (2*city.averageMonthlyNetSalaryAfterTax!! )
 
 
   }

@@ -3,21 +3,26 @@ package interactor
 import model.CityEntity
 
 class GetTopCitiesFasterToBuyApartmentAndTheNumberOfYearToBuyIt(private val dataSource: CostOfLivingDataSource) {
-    fun execute(): List<Pair<String, Float>> {
+    fun execute(limit: Int = 10): List<Pair<String, Float>> {
         return dataSource.getAllCitiesData()
-            .filter(::excludeLowDataQualityAndWitiesWithNoMeterPrice)
-            .sortedBy(::averageBetweenMeterSquarePriceAndAverageSalary)
-            .take(10)
-            .map { (Pair(it.cityName, averageBetweenMeterSquarePriceAndAverageSalary(it))) }
+            .filter(::excludeLowDataQualityAndCitiesWithNoMeterPrice)
+            .sortedBy(::numberOfYearNeededToBuyApartment)
+            .take(limit)
+            .map { (Pair(it.cityName, numberOfYearNeededToBuyApartment(it))) }
     }
 
-    private fun excludeLowDataQualityAndWitiesWithNoMeterPrice(city: CityEntity): Boolean {
+    private fun excludeLowDataQualityAndCitiesWithNoMeterPrice(city: CityEntity): Boolean {
         return city.dataQuality &&
                 city.realEstatesPrices.pricePerSquareMeterToBuyApartmentOutsideOfCentre != null
                 && city.averageMonthlyNetSalaryAfterTax != null
     }
 
-    private fun averageBetweenMeterSquarePriceAndAverageSalary(city: CityEntity): Float {
-        return (city.realEstatesPrices.pricePerSquareMeterToBuyApartmentOutsideOfCentre!! * 100) / (city.averageMonthlyNetSalaryAfterTax!! * 12)
+    private fun numberOfYearNeededToBuyApartment(city: CityEntity): Float {
+        return (city.realEstatesPrices.pricePerSquareMeterToBuyApartmentOutsideOfCentre!! * apartmentWithHundredSquareMeter) / (city.averageMonthlyNetSalaryAfterTax!! * salaryInWholeYear)
+    }
+
+    companion object {
+        private const val apartmentWithHundredSquareMeter = 100
+        private const val salaryInWholeYear = 12
     }
 }

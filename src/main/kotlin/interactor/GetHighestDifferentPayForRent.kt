@@ -4,25 +4,58 @@ import model.CityEntity
 
 class  GetHighestDifferentPayForRent (
     private val dataSource: CostOfLivingDataSource,
-
-    ) {
-    fun execute(): CityEntity{
-        return dataSource
-            .getAllCitiesData()
-            .filter(::excludeHighQulaityDataAndNullable)
-            .sortedByDescending (::sortedHighestDifferentPayForRent)
-            .first()
+) {
+    fun execute(
+        apartmentOneBedroom: Boolean,
+        apartmentThreeBedrooms: Boolean,
+    ): String? {
+        return if(apartmentOneBedroom||apartmentThreeBedrooms) {
+            dataSource.getAllCitiesData()
+                .filter(::excludeHighQualityDataAndNullable)
+                .sortedByDescending {
+                    it.findHighestDifferentInCitiesRent(apartmentOneBedroom,
+                        apartmentThreeBedrooms)
+                }
+                //  .takeIf { apartmentThreeBedrooms || apartmentOneBedroom }
+                .map { it.cityName }.run {
+                    if (isEmpty()) {
+                        throw  Exception("")
+                    } else first()
+                }
+        }
+        else throw  Exception("")
     }
-}
-private fun excludeHighQulaityDataAndNullable(city: CityEntity): Boolean {
-    val  apartmentPrices = city.realEstatesPrices
-    return city.dataQuality && apartmentPrices.apartmentOneBedroomOutsideOfCentre !=null &&apartmentPrices.apartment3BedroomsOutsideOfCentre !=null
-            && apartmentPrices.apartmentOneBedroomInCityCentre !=null &&apartmentPrices.apartment3BedroomsInCityCentre !=null
-}
-private  fun sortedHighestDifferentPayForRent(city: CityEntity):Float{
-    val  apartmentPrices=city.realEstatesPrices
-    val differentBetweenOneBadRoomPrices= apartmentPrices.apartmentOneBedroomInCityCentre !!- apartmentPrices.apartmentOneBedroomOutsideOfCentre !!
-    val differentBetweenThreeBadRoomPrices =apartmentPrices.apartment3BedroomsInCityCentre!!- apartmentPrices.apartment3BedroomsOutsideOfCentre !!
-    return  if (differentBetweenOneBadRoomPrices >=differentBetweenThreeBadRoomPrices) return differentBetweenOneBadRoomPrices
-    else  differentBetweenThreeBadRoomPrices
+    private fun excludeHighQualityDataAndNullable(city: CityEntity): Boolean {
+        return city.realEstatesPrices.apartmentOneBedroomOutsideOfCentre != null &&
+                city.realEstatesPrices.apartment3BedroomsOutsideOfCentre != null &&
+                city.realEstatesPrices.apartmentOneBedroomInCityCentre != null &&
+                city.realEstatesPrices.apartment3BedroomsInCityCentre != null &&
+                city.dataQuality
+    }
+    private fun CityEntity.findHighestDifferentInCitiesRent(
+        apartmentOneBedroom: Boolean,
+        apartmentThreeBedrooms: Boolean
+    ): Float {
+        if (apartmentOneBedroom && !apartmentThreeBedrooms)
+            return kotlin.math.abs(
+                realEstatesPrices.apartmentOneBedroomInCityCentre!!
+                        - realEstatesPrices.apartmentOneBedroomOutsideOfCentre!!
+            )
+        else if (apartmentThreeBedrooms && !apartmentOneBedroom)
+            return kotlin.math.abs(
+                realEstatesPrices.apartment3BedroomsInCityCentre!!
+                        - realEstatesPrices.apartment3BedroomsOutsideOfCentre!!
+            )
+        else if (apartmentThreeBedrooms && apartmentOneBedroom) (
+                return kotlin.math.abs(
+                    realEstatesPrices.apartmentOneBedroomInCityCentre!!
+                            - realEstatesPrices.apartmentOneBedroomOutsideOfCentre!!
+                ) +
+                        kotlin.math.abs(
+                            realEstatesPrices.apartment3BedroomsInCityCentre!!
+                                    - realEstatesPrices.apartment3BedroomsOutsideOfCentre!!
+                        )
+                )
+        else return 0f
+    }
 }
